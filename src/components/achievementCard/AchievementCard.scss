@@ -5,6 +5,10 @@
   height: auto;
   width: 250px;
 }
+.certificate-icon {
+  color: $buttonColor;
+  font-size: 5rem;
+}
 .card-title {
   color: $titleColor;
   font-size: 1.375rem;
@@ -38,7 +42,7 @@
 }
 .certificate-image-div {
   position: relative;
-  height: 250px;
+  height: 170px;
   overflow: hidden;
   display: flex;
   justify-content: center;

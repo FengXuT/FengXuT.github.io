@@ -8,9 +8,11 @@ import SocialMedia from "../../components/socialMedia/SocialMedia";
 import Button from "../../components/button/Button";
 import {illustration, greeting} from "../../portfolio";
 import StyleContext from "../../contexts/StyleContext";
+import LanguageContext from "../../contexts/LanguageContext";
 
 export default function Greeting() {
   const {isDark} = useContext(StyleContext);
+  const {language} = useContext(LanguageContext);
   if (!greeting.displayGreeting) {
     return null;
   }
@@ -24,7 +26,7 @@ export default function Greeting() {
                 className={isDark ? "dark-mode greeting-text" : "greeting-text"}
               >
                 {" "}
-                {greeting.title}{" "}
+                {greeting.title[language]}{" "}
                 <span className="wave-emoji">{emoji("👋")}</span>
               </h1>
               <p
@@ -34,19 +36,25 @@ export default function Greeting() {
                     : "greeting-text-p subTitle"
                 }
               >
-                {greeting.subTitle}
+                {greeting.subTitle[language]}
               </p>
               <div id="resume" className="empty-div"></div>
               <SocialMedia />
               <div className="button-greeting-div">
-                <Button text="Contact me" href="#contact" />
+                <Button
+                  text={language === "zh" ? "查看 GitHub" : "View GitHub"}
+                  href="https://github.com/fengxut"
+                  newTab={true}
+                />
                 {greeting.resumeLink && (
                   <a
                     href={require("./resume.pdf")}
                     download="Resume.pdf"
                     className="download-link-button"
                   >
-                    <Button text="Download my resume" />
+                    <Button
+                      text={language === "zh" ? "下载简历" : "Download resume"}
+                    />
                   </a>
                 )}
               </div>

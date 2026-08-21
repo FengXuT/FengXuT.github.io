@@ -1,389 +1,177 @@
-/* 修改此文件以配置你的个人作品集 */
+/* Personal portfolio content. Keep every public claim verifiable. */
 
-// 若要全局修改作品集配色，请前往 _globalColor.scss 文件
-
-import emoji from "react-easy-emoji";
-import splashAnimation from "./assets/lottie/splashAnimation"; // 如需自定义动画，请改为你的动画文件名
-
-// 启动画面
+import splashAnimation from "./assets/lottie/splashAnimation";
 
 const splashScreen = {
-  enabled: true, // 设为 false 可关闭启动画面
+  enabled: true,
   animation: splashAnimation,
-  duration: 2000 // 根据你的动画时长设置持续时间
+  duration: 1200
 };
 
-// 简介与问候区
-
-const illustration = {
-  animated: true // 设为 false 则使用静态 SVG
-};
+const illustration = {animated: true};
 
 const greeting = {
-  username: "Wang TianHao",
-  title: "Hi all, I'm TianHao Wang",
-  subTitle: emoji(
-    "An Undergraduate major in computer science From FuDan University,who also interested in economy and artificial intelligence."
-  ),
-  resumeLink:
-    "", // 设为空字符串可隐藏按钮https://drive.google.com/file/d/1ofFdKF_mqscH8WvXkSObnVvC9kK7Ldlu/view?usp=sharing
-  displayGreeting: true // 设为 false 可隐藏本区块，默认为 true
+  username: "Tianhao Wang",
+  title: {
+    en: "Hi, I'm Tianhao Wang",
+    zh: "你好，我是王天昊"
+  },
+  subTitle: {
+    en: "I'm a second-year Computer Science undergraduate at Fudan University, interested in natural language processing, agent frameworks, and quantitative finance. I enjoy turning ideas into practical systems and exploring how models, tools, and efficient computing can work together.",
+    zh: "我是复旦大学计算机科学与技术专业大二学生，关注自然语言处理、Agent 框架与量化金融。我喜欢把想法实现为实用系统，并探索模型、工具与高效计算之间的结合。"
+  },
+  resumeLink: "",
+  displayGreeting: true
 };
-
-// 社交媒体链接
 
 const socialMediaLinks = {
   github: "https://github.com/fengxut",
-  linkedin: "",//https://www.linkedin.com/in/saadpasta/
-  gmail: "wangth12345@gmail.com",
-  gitlab: "",//https://gitlab.com/saadpasta
-  facebook: "",//https://www.facebook.com/saad.pasta7
-  medium: "",//https://medium.com/@saadpasta
-  stackoverflow: "",//https://stackoverflow.com/users/10422806/saad-pasta
-  // 也支持配置 Instagram、Twitter 和 Kaggle 链接！
-  // 如需自定义图标和社交链接，请调整 src/components/SocialMedia
-  display: true // 设为 true 显示本区块，默认为 false
+  linkedin: "",
+  gmail: "",
+  gitlab: "",
+  facebook: "",
+  medium: "",
+  stackoverflow: "",
+  display: true
 };
-
-// 技能区
 
 const skillsSection = {
-  title: "What I do",
-  subTitle: "",
+  title: {en: "What I work with", zh: "技术与方向"},
+  subTitle: {
+    en: "My current toolkit spans systems programming, AI development, and efficient computing.",
+    zh: "目前的技术积累覆盖系统编程、人工智能开发与高效计算。"
+  },
   skills: [
-    emoji(
-      "⚡ Develop highly interactive Front end / User Interfaces for your web and mobile applications"
-    ),
-    emoji("⚡ Progressive Web Applications ( PWA ) in normal and SPA Stacks"),
-    emoji(
-      "⚡ Integration of third party services such as Firebase/ AWS / Digital Ocean"
-    )
-  ],
-
-  /* 请确保填写正确的 Font Awesome 类名以显示图标
-https://fontawesome.com/icons?d=gallery */
-
-  softwareSkills: [
     {
-      skillName: "html-5",
-      fontAwesomeClassname: "fab fa-html5"
+      en: "⚡ Building and optimizing custom operators with AscendC",
+      zh: "⚡ 使用 AscendC 开发和优化自定义算子"
     },
     {
-      skillName: "css3",
-      fontAwesomeClassname: "fab fa-css3-alt"
+      en: "⚡ Exploring natural language processing and practical agent frameworks",
+      zh: "⚡ 探索自然语言处理与实用 Agent 框架"
     },
     {
-      skillName: "sass",
-      fontAwesomeClassname: "fab fa-sass"
-    },
-    {
-      skillName: "JavaScript",
-      fontAwesomeClassname: "fab fa-js"
-    },
-    {
-      skillName: "reactjs",
-      fontAwesomeClassname: "fab fa-react"
-    },
-    {
-      skillName: "nodejs",
-      fontAwesomeClassname: "fab fa-node"
-    },
-    {
-      skillName: "swift",
-      fontAwesomeClassname: "fab fa-swift"
-    },
-    {
-      skillName: "npm",
-      fontAwesomeClassname: "fab fa-npm"
-    },
-    {
-      skillName: "sql-database",
-      fontAwesomeClassname: "fas fa-database"
-    },
-    {
-      skillName: "aws",
-      fontAwesomeClassname: "fab fa-aws"
-    },
-    {
-      skillName: "firebase",
-      fontAwesomeClassname: "fas fa-fire"
-    },
-    {
-      skillName: "python",
-      fontAwesomeClassname: "fab fa-python"
-    },
-    {
-      skillName: "docker",
-      fontAwesomeClassname: "fab fa-docker"
+      en: "⚡ Applying Python to data-oriented and quantitative research workflows",
+      zh: "⚡ 使用 Python 开展数据分析与量化研究实践"
     }
   ],
-  display: true // 设为 false 可隐藏本区块，默认为 true
+  softwareSkills: [
+    {skillName: "Python", fontAwesomeClassname: "fab fa-python"},
+    {skillName: "C / C++", fontAwesomeClassname: "fas fa-code"},
+    {skillName: "AscendC", fontAwesomeClassname: "fas fa-microchip"},
+    {skillName: "PyTorch", fontAwesomeClassname: "fas fa-brain"},
+    {skillName: "Git", fontAwesomeClassname: "fab fa-git-alt"},
+    {skillName: "Linux", fontAwesomeClassname: "fab fa-linux"}
+  ],
+  display: true
 };
 
-// 教育经历区
-
 const educationInfo = {
-  display: true, // 设为 false 可隐藏本区块，默认为 true
+  title: {en: "Education", zh: "教育经历"},
+  display: true,
   schools: [
     {
-      schoolName: "复旦大学",
+      schoolName: {en: "Fudan University", zh: "复旦大学"},
       logo: require("./assets/images/FudanLogo.png"),
-      subHeader: " 计算机科学与技术",
-      duration: "2025年9月至今",
-      desc: "",//Participated in the research of XXX and published 3 papers.
-      /*descBullets: [
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit"
-      ]*/
-    },
-    /*{
-      schoolName: "Stanford University",
-      logo: require("./assets/images/stanfordLogo.png"),
-      subHeader: "Bachelor of Science in Computer Science",
-      duration: "September 2013 - April 2017",
-      desc: "Ranked top 10% in the program. Took courses about Software Engineering, Web Security, Operating Systems, ...",
-      descBullets: ["Lorem ipsum dolor sit amet, consectetur adipiscing elit"]
-    }*/
+      subHeader: {
+        en: "B.Eng. in Computer Science and Technology",
+        zh: "计算机科学与技术 · 本科"
+      },
+      duration: {en: "Sep 2025 — Present", zh: "2025年9月 — 至今"},
+      desc: {
+        en: "Second-year undergraduate focusing on natural language processing, agent frameworks, and quantitative finance.",
+        zh: "大二在读，关注自然语言处理、Agent 框架与量化金融。"
+      }
+    }
   ]
 };
 
-// 你最擅长的 3 个技术方向/技术栈
-
-const techStack = {
-/*  viewSkillBars: true, // 设为 true 以显示熟练度区块
-  experience: [
-    {
-      Stack: "Frontend/Design", // 填写你有经验的技术栈或技术方向
-      progressPercentage: "90%" // 填写相对熟练度（百分比）
-    },
-    {
-      Stack: "Backend",
-      progressPercentage: "70%"
-    },
-    {
-      Stack: "Programming",
-      progressPercentage: "60%"
-    }
-  ],
-  displayCodersrank: false // 设为 true 可显示 codersrank 徽章区；需先在 src/containers/skillProgress/skillProgress.js:17:62 修改用户名，默认为 false*/
-};
-
-// 工作经历区
-
-const workExperiences = {
- /* display: true, // 设为 true 以显示工作经历区
-  experience: [
-    {
-      role: "Software Engineer",
-      company: "Facebook",
-      companylogo: require("./assets/images/facebookLogo.png"),
-      date: "June 2018 – Present",
-      desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-      descBullets: [
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit"
-      ]
-    },
-    {
-      role: "Front-End Developer",
-      company: "Quora",
-      companylogo: require("./assets/images/quoraLogo.png"),
-      date: "May 2017 – May 2018",
-      desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-    },
-    {
-      role: "Software Engineer Intern",
-      company: "Airbnb",
-      companylogo: require("./assets/images/airbnbLogo.png"),
-      date: "Jan 2015 – Sep 2015",
-      desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-    }
-  ]*/
-};
-
-/* 开源区：用于展示你在 Github 置顶的项目
-如需了解如何获取 github key，请查看 readme.md */
-
-const openSource = {
-  showGithubProfile: "true", // 设为 true 或 false 以控制是否通过 Github 显示联系资料，默认为 true
-  display: true // 设为 false 可隐藏本区块，默认为 true
-};
-
-// 你参与过的一些重要项目
-
-const bigProjects = {
-  title: "Big Projects",
-  subtitle: "SOME STARTUPS AND COMPANIES THAT I HELPED TO CREATE THEIR TECH",
+const projectsSection = {
+  title: {en: "Selected Projects", zh: "代表项目"},
+  subtitle: {
+    en: "A focused selection of practical work with clear technical depth.",
+    zh: "聚焦具有实用价值与明确技术深度的作品。"
+  },
+  display: true,
   projects: [
     {
-      image: require("./assets/images/saayaHealthLogo.webp"),
-      projectName: "Saayahealth",
-      projectDesc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
-      footerLink: [
-        {
-          name: "Visit Website",
-          url: "http://saayahealth.com/"
-        }
-        // 你可以在这里添加更多按钮。
-      ]
+      name: {en: "CANN Operator Challenge", zh: "CANN 算子挑战赛"},
+      period: {en: "Jun 2026", zh: "2026年6月"},
+      description: {
+        en: "Implemented Addcmul, Lerp, and ClipByValue custom operators for Ascend 910B with AscendC. The work covers host-side registration and tiling, AI Core kernels, multicore partitioning, vectorized computation, unaligned data transfers, and broadcasting paths.",
+        zh: "面向 Ascend 910B，使用 AscendC 实现 Addcmul、Lerp 与 ClipByValue 三个自定义算子，覆盖 Host 侧算子注册与 Tiling、AI Core Kernel、多核切分、向量化计算、非对齐数据搬运及广播路径处理。"
+      },
+      tags: ["AscendC", "C++", "Ascend 910B", "Operator Development"],
+      link: "https://cannjudge.cn/fdu-aiops/fdu-competition-2026",
+      linkText: {en: "Competition page", zh: "比赛页面"},
+      icon: "fas fa-microchip"
     },
     {
-      image: require("./assets/images/nextuLogo.webp"),
-      projectName: "Nextu",
-      projectDesc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
-      footerLink: [
-        {
-          name: "Visit Website",
-          url: "http://nextu.se/"
-        }
-      ]
+      name: {en: "ChatGPT Folders", zh: "ChatGPT Folders"},
+      period: {en: "Jul 2026", zh: "2026年7月"},
+      description: {
+        en: "A Chrome and Edge Manifest V3 extension that adds locally synchronized folder management to ChatGPT conversations. It supports folder organization, bulk assignment of visible conversations, custom display names, and chrome.storage.sync persistence without reading message content or operating a backend.",
+        zh: "一款面向 Chrome 与 Edge 的 Manifest V3 扩展，为 ChatGPT 对话增加本地同步的文件夹管理能力，支持文件夹整理、批量归类当前可见对话、自定义显示名称及 chrome.storage.sync 持久化；不读取聊天正文，也不依赖后端服务。"
+      },
+      tags: ["TypeScript", "Manifest V3", "Vite", "Chrome Extension"],
+      link: "https://github.com/FengXuT/GPT-Folder",
+      linkText: {en: "View on GitHub", zh: "查看 GitHub"},
+      icon: "fas fa-folder-open"
     }
-  ],
-  display: false // 设为 false 可隐藏本区块，默认为 true
+  ]
 };
-
-// 成就区
-// 可包含证书、演讲等内容
 
 const achievementSection = {
-  title: emoji("Achievements And Certifications 🏆 "),
-  subtitle:
-    "Achievements, Certifications, Award Letters and Some Cool Stuff that I have done !",
-
+  title: {en: "Awards", zh: "奖项荣誉"},
+  subtitle: {
+    en: "Competition results and technical practice",
+    zh: "竞赛成果与技术实践"
+  },
   achievementsCards: [
     {
-      title: "Google Code-In Finalist",
-      subtitle:
-        "First Pakistani to be selected as Google Code-in Finalist from 4000 students from 77 different countries.",
-      image: require("./assets/images/codeInLogo.webp"),
-      imageAlt: "Google Code-In Logo",
-      footerLink: [
-        {
-          name: "Certification",
-          url: "https://drive.google.com/file/d/0B7kazrtMwm5dYkVvNjdNWjNybWJrbndFSHpNY2NFV1p4YmU0/view?usp=sharing"
-        },
-        {
-          name: "Award Letter",
-          url: "https://drive.google.com/file/d/0B7kazrtMwm5dekxBTW5hQkg2WXUyR3QzQmR0VERiLXlGRVdF/view?usp=sharing"
-        },
-        {
-          name: "Google Code-in Blog",
-          url: "https://opensource.googleblog.com/2019/01/google-code-in-2018-winners.html"
-        }
-      ]
+      title: {
+        en: "17th Chinese Mathematics Competitions — First Prize",
+        zh: "第十七届全国大学生数学竞赛（高教社杯）一等奖"
+      },
+      subtitle: {
+        en: "Non-Mathematics Category A · Shanghai Division · 2025 · Chinese Mathematical Society",
+        zh: "非数学 A 类 · 上海赛区 · 2025年 · 中国数学会"
+      },
+      icon: "fas fa-award",
+      footerLink: []
     },
     {
-      title: "Google Assistant Action",
-      subtitle:
-        "Developed a Google Assistant Action JavaScript Guru that is available on 2 Billion devices world wide.",
-      image: require("./assets/images/googleAssistantLogo.webp"),
-      imageAlt: "Google Assistant Action Logo",
+      title: {
+        en: "Fudan University CANN Competition — Excellence Award",
+        zh: "复旦大学 CANN 校内自办赛优胜奖"
+      },
+      subtitle: {
+        en: "2026 · Individual entry · Addcmul, Lerp, and ClipByValue operators",
+        zh: "2026年 · 个人参赛 · Addcmul、Lerp 与 ClipByValue 算子"
+      },
+      icon: "fas fa-microchip",
       footerLink: [
         {
-          name: "View Google Assistant Action",
-          url: "https://assistant.google.com/services/a/uid/000000100ee688ee?hl=en"
-        }
-      ]
-    },
-
-    {
-      title: "PWA Web App Developer",
-      subtitle: "Completed Certifcation from SMIT for PWA Web App Development",
-      image: require("./assets/images/pwaLogo.webp"),
-      imageAlt: "PWA Logo",
-      footerLink: [
-        {name: "Certification", url: ""},
-        {
-          name: "Final Project",
-          url: "https://pakistan-olx-1.firebaseapp.com/"
+          name: {en: "Competition page", zh: "比赛页面"},
+          url: "https://cannjudge.cn/fdu-aiops/fdu-competition-2026"
         }
       ]
     }
   ],
-  display: true // 设为 false 可隐藏本区块，默认为 true
+  display: true
 };
 
-// 博客区
-
-const blogSection = {
-  title: "Blogs",
-  subtitle:
-    "With Love for Developing cool stuff, I love to write and teach others what I have learnt.",
-  displayMediumBlogs: "true", // 设为 true 时显示抓取的 Medium 博客，而非硬编码内容
-  blogs: [
-    {
-      url: "https://blog.usejournal.com/create-a-google-assistant-action-and-win-a-google-t-shirt-and-cloud-credits-4a8d86d76eae",
-      title: "Win a Google Assistant Tshirt and $200 in Google Cloud Credits",
-      description:
-        "Do you want to win $200 and Google Assistant Tshirt by creating a Google Assistant Action in less then 30 min?"
-    },
-    {
-      url: "https://medium.com/@saadpasta/why-react-is-the-best-5a97563f423e",
-      title: "Why REACT is The Best?",
-      description:
-        "React is a JavaScript library for building User Interface. It is maintained by Facebook and a community of individual developers and companies."
-    }
-  ],
-  display: false // 设为 false 可隐藏本区块，默认为 true
-};
-
-// 演讲区
-
-const talkSection = {
-  title: "TALKS",
-  subtitle: emoji(
-    "I LOVE TO SHARE MY LIMITED KNOWLEDGE AND GET A SPEAKER BADGE 😅"
-  ),
-
-  talks: [
-    {
-      title: "Build Actions For Google Assistant",
-      subtitle: "Codelab at GDG DevFest Karachi 2019",
-      slides_url: "https://bit.ly/saadpasta-slides",
-      event_url: "https://www.facebook.com/events/2339906106275053/"
-    }
-  ],
-  display: false // 设为 false 可隐藏本区块，默认为 true
-};
-
-// 播客区
-
-const podcastSection = {
-  title: emoji("Podcast 🎙️"),
-  subtitle: "I LOVE TO TALK ABOUT MYSELF AND TECHNOLOGY",
-
-  // 请填写你的播客嵌入链接
-  podcast: [
-    "https://anchor.fm/codevcast/embed/episodes/DevStory---Saad-Pasta-from-Karachi--Pakistan-e9givv/a-a15itvo"
-  ],
-  display: false // 设为 false 可隐藏本区块，默认为 true
-};
-
-// 简历区
-const resumeSection = {
-  title: "Resume",
-  subtitle: "Feel free to download my resume",
-
-  // 如有需要，请在此提供你的播客嵌入链接
-  display: false // 设为 false 可隐藏本区块，默认为 true
-};
-
-const contactInfo = {
-  title: emoji("Contact Me ☎️"),
-  subtitle:
-    "Discuss a project or just want to say hi? My Inbox is open for all.",
-  number: "+92-0000000000",
-  email_address: "wangth12345@gmail.com"
-};
-
-// Twitter 区
-
-const twitterDetails = {
-  userName: "twitter", // 将 "twitter" 替换为你的 Twitter 用户名（不带 @)
-  display: false // 设为 true 显示本区块，默认为 false
-};
-
-const isHireable = false; // 若你暂时不求职请设为 false；该值会在 GitHub 页脚显示为 Open for opportunities: Yes/No
+const techStack = {viewSkillBars: false, experience: [], displayCodersrank: false};
+const workExperiences = {display: false, experience: []};
+const openSource = {showGithubProfile: "false", display: true};
+const bigProjects = {projects: [], display: false};
+const blogSection = {blogs: [], displayMediumBlogs: "false", display: false};
+const talkSection = {talks: [], display: false};
+const podcastSection = {podcast: [], display: false};
+const resumeSection = {display: false};
+const contactInfo = {title: "", subtitle: "", number: "", email_address: ""};
+const twitterDetails = {userName: "", display: false};
+const isHireable = false;
 
 export {
   illustration,
@@ -392,6 +180,7 @@ export {
   splashScreen,
   skillsSection,
   educationInfo,
+  projectsSection,
   techStack,
   workExperiences,
   openSource,

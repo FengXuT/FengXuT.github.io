@@ -4,8 +4,10 @@ import AchievementCard from "../../components/achievementCard/AchievementCard";
 import {achievementSection} from "../../portfolio";
 import {Fade} from "react-reveal";
 import StyleContext from "../../contexts/StyleContext";
+import LanguageContext from "../../contexts/LanguageContext";
 export default function Achievement() {
   const {isDark} = useContext(StyleContext);
+  const {language} = useContext(LanguageContext);
   if (!achievementSection.display) {
     return null;
   }
@@ -21,7 +23,7 @@ export default function Achievement() {
                   : "heading achievement-heading"
               }
             >
-              {achievementSection.title}
+              {achievementSection.title[language]}
             </h1>
             <p
               className={
@@ -30,7 +32,7 @@ export default function Achievement() {
                   : "subTitle achievement-subtitle"
               }
             >
-              {achievementSection.subtitle}
+              {achievementSection.subtitle[language]}
             </p>
           </div>
           <div className="achievement-cards-div">
@@ -40,11 +42,15 @@ export default function Achievement() {
                   key={i}
                   isDark={isDark}
                   cardInfo={{
-                    title: card.title,
-                    description: card.subtitle,
+                    title: card.title[language],
+                    description: card.subtitle[language],
                     image: card.image,
                     imageAlt: card.imageAlt,
-                    footer: card.footerLink
+                    icon: card.icon,
+                    footer: card.footerLink.map(link => ({
+                      ...link,
+                      name: link.name[language]
+                    }))
                   }}
                 />
               );

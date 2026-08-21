@@ -3,7 +3,7 @@ import {Fade, Slide} from "react-reveal";
 import "./EducationCard.scss";
 import StyleContext from "../../contexts/StyleContext";
 
-export default function EducationCard({school}) {
+export default function EducationCard({school, language}) {
   const imgRef = createRef();
 
   const GetDescBullets = ({descBullets}) => {
@@ -30,12 +30,14 @@ export default function EducationCard({school}) {
                 ref={imgRef}
                 className="education-roundedimg"
                 src={school.logo}
-                alt={school.schoolName}
+                alt={school.schoolName[language]}
               />
             </div>
           )}
           <div className="education-card-right">
-            <h5 className="education-text-school">{school.schoolName}</h5>
+            <h5 className="education-text-school">
+              {school.schoolName[language]}
+            </h5>
 
             <div className="education-text-details">
               <h5
@@ -45,16 +47,16 @@ export default function EducationCard({school}) {
                     : "education-text-subHeader"
                 }
               >
-                {school.subHeader}
+                {school.subHeader[language]}
               </h5>
               <p
                 className={`${
                   isDark ? "dark-mode" : ""
                 } education-text-duration`}
               >
-                {school.duration}
+                {school.duration[language]}
               </p>
-              <p className="education-text-desc">{school.desc}</p>
+              <p className="education-text-desc">{school.desc[language]}</p>
               <div className="education-text-bullets">
                 <ul>
                   <GetDescBullets descBullets={school.descBullets} />

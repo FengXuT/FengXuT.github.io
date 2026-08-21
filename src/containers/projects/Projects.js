@@ -1,74 +1,63 @@
-import React, {useState, useEffect, useContext, Suspense, lazy} from "react";
+import React, {useContext} from "react";
+import {Fade} from "react-reveal";
 import "./Project.scss";
-import Button from "../../components/button/Button";
-import {openSource, socialMediaLinks} from "../../portfolio";
+import {projectsSection, socialMediaLinks} from "../../portfolio";
 import StyleContext from "../../contexts/StyleContext";
-import Loading from "../../containers/loading/Loading";
+import LanguageContext from "../../contexts/LanguageContext";
+
 export default function Projects() {
-  const GithubRepoCard = lazy(() =>
-    import("../../components/githubRepoCard/GithubRepoCard")
-  );
-  const FailedLoading = () => null;
-  const renderLoader = () => <Loading />;
-  const [repo, setrepo] = useState([]);
-  // todo: remove useContex because is not supported
   const {isDark} = useContext(StyleContext);
+  const {language} = useContext(LanguageContext);
 
-  useEffect(() => {
-    const getRepoData = () => {
-      fetch("/profile.json")
-        .then(result => {
-          if (result.ok) {
-            return result.json();
-          }
-          throw result;
-        })
-        .then(response => {
-          setrepoFunction(response.data.user.pinnedItems.edges);
-        })
-        .catch(function (error) {
-          console.error(
-            `${error} (because of this error, nothing is shown in place of Projects section. Also check if Projects section has been configured)`
-          );
-          setrepoFunction("Error");
-        });
-    };
-    getRepoData();
-  }, []);
+  if (!projectsSection.display) {
+    return null;
+  }
 
-  function setrepoFunction(array) {
-    setrepo(array);
-  }
-  if (
-    !(typeof repo === "string" || repo instanceof String) &&
-    openSource.display
-  ) {
-    return (
-      <Suspense fallback={renderLoader()}>
-        <div className="main" id="opensource">
-          <h1 className="project-title">Open Source Projects</h1>
-          <div className="repo-cards-div-main">
-            {repo.map((v, i) => {
-              if (!v) {
-                console.error(
-                  `Github Object for repository number : ${i} is undefined`
-                );
-              }
-              return (
-                <GithubRepoCard repo={v} key={v.node.id} isDark={isDark} />
-              );
-            })}
-          </div>
-          <Button
-            text={"More Projects"}
-            className="project-button"
-            href={socialMediaLinks.github}
-            newTab={true}
-          />
-        </div>
-      </Suspense>
-    );
-  } else {
-    return <FailedLoading />;
-  }
+  return (
+    <div className="main selected-projects" id="opensource">
+      <h1 className="project-title">{projectsSection.title[language]}</h1>
+      <p className={isDark ? "dark-mode project-subtitle" : "project-subtitle"}>
+        {projectsSection.subtitle[language]}
+      </p>
+      <div className="repo-cards-div-main">
+        {projectsSection.projects.map(project => (
+          <Fade bottom duration={900} distance="20px" key={project.name.en}>
+            <article
+              className={isDark ? "dark-card-mode project-card" : "project-card"}
+            >
+              <div className="project-card-header">
+                <i className={`${project.icon} project-card-icon`} aria-hidden="true"></i>
+                <span className="project-period">{project.period[language]}</span>
+              </div>
+              <h2>{project.name[language]}</h2>
+              <p>{project.description[language]}</p>
+              <ul className="project-tags" aria-label={language === "zh" ? "技术栈" : "Technology stack"}>
+                {project.tags.map(tag => (
+                  <li key={tag}>{tag}</li>
+                ))}
+              </ul>
+              <a
+                className="project-link"
+                href={project.link}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {project.linkText[language]}
+                <span aria-hidden="true"> ↗</span>
+              </a>
+            </article>
+          </Fade>
+        ))}
+      </div>
+      <a
+        className="all-projects-link"
+        href={socialMediaLinks.github}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        {language === "zh" ? "浏览更多 GitHub 项目" : "Explore more on GitHub"}
+        <span aria-hidden="true"> ↗</span>
+      </a>
+    </div>
+  );
 }

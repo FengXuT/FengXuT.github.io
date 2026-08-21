@@ -50,6 +50,24 @@
   background-color: $headerHoverBG;
 }
 
+.language-toggle {
+  border: 1px solid $buttonColor;
+  border-radius: 999px;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+  font: inherit;
+  margin: 9px 8px;
+  padding: 6px 13px;
+}
+
+.language-toggle:hover,
+.language-toggle:focus-visible {
+  background: $buttonColor;
+  color: $lightBackground3;
+  outline: none;
+}
+
 .header .logo {
   display: block;
   flex: none;

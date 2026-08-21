@@ -14,11 +14,15 @@ export default function AchievementCard({cardInfo, isDark}) {
   return (
     <div className={isDark ? "dark-mode certificate-card" : "certificate-card"}>
       <div className="certificate-image-div">
-        <img
-          src={cardInfo.image}
-          alt={cardInfo.imageAlt || "Card Thumbnail"}
-          className="card-image"
-        ></img>
+        {cardInfo.image ? (
+          <img
+            src={cardInfo.image}
+            alt={cardInfo.imageAlt || "Card Thumbnail"}
+            className="card-image"
+          ></img>
+        ) : (
+          <i className={`${cardInfo.icon} certificate-icon`} aria-hidden="true"></i>
+        )}
       </div>
       <div className="certificate-detail-div">
         <h5 className={isDark ? "dark-mode card-title" : "card-title"}>
@@ -37,6 +41,13 @@ export default function AchievementCard({cardInfo, isDark}) {
                 isDark ? "dark-mode certificate-tag" : "certificate-tag"
               }
               onClick={() => openUrlInNewTab(v.url, v.name)}
+              role="link"
+              tabIndex={0}
+              onKeyDown={event => {
+                if (event.key === "Enter" || event.key === " ") {
+                  openUrlInNewTab(v.url, v.name);
+                }
+              }}
             >
               {v.name}
             </span>

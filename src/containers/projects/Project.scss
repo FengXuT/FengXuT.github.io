@@ -1,7 +1,25 @@
+@import "../../_globalColor";
+
 .project-title {
   font-size: 52px;
   font-weight: 400;
   line-height: normal;
+}
+
+.dark-card-mode.project-card {
+  background: $darkBackground;
+  border-color: rgba(255, 255, 255, 0.12);
+}
+
+.selected-projects {
+  padding-top: 55px;
+  padding-bottom: 55px;
+}
+
+.project-subtitle {
+  color: $subTitle;
+  margin: 0 0 2rem;
+  max-width: 720px;
 }
 
 .startup-project-text img {
@@ -15,10 +33,87 @@
   gap: 1rem 1rem;
 }
 
+.project-card {
+  background: $lightBackground2;
+  border: 1px solid $lightBorder1;
+  border-radius: 14px;
+  box-shadow: $lightBoxShadowDark 0 10px 30px -15px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 1.6rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.project-card:hover {
+  box-shadow: $lightBoxShadowDark 0 18px 35px -15px;
+  transform: translateY(-4px);
+}
+
+.project-card-header {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+}
+
+.project-card-icon {
+  color: $buttonColor;
+  font-size: 1.7rem;
+}
+
+.project-period {
+  color: $subTitle;
+  font-size: 0.85rem;
+}
+
+.project-card h2 {
+  font-size: 1.45rem;
+  margin: 1rem 0 0.75rem;
+}
+
+.project-card p {
+  color: $subTitle;
+  line-height: 1.7;
+  margin: 0 0 1.2rem;
+}
+
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  list-style: none;
+  margin: auto 0 1.3rem;
+  padding: 0;
+}
+
+.project-tags li {
+  background: rgba(108, 99, 255, 0.12);
+  border-radius: 999px;
+  color: $buttonColor;
+  font-size: 0.72rem;
+  padding: 0.35rem 0.65rem;
+}
+
+.project-link,
+.all-projects-link {
+  color: $buttonColor;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.all-projects-link {
+  display: inline-block;
+  margin-top: 1.8rem;
+}
+
 /* Media Query */
 @media (max-width: 1380px) {
   .project-title {
     font-size: 40px;
+  }
+  .project-subtitle {
+    text-align: center;
   }
 }
 @media (max-width: 768px) {
