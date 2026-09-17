@@ -95,11 +95,11 @@ const courseworkSection = {
   display: true,
   courses: [
     {
-      name: {en: "Advanced Mathematics (A) I", zh: "高等数学（A）（上）"},
+      name: {en: "Advanced Mathematics A I", zh: "高等数学 A（上）"},
       grade: "A"
     },
     {
-      name: {en: "Advanced Mathematics (A) II", zh: "高等数学（A）（下）"},
+      name: {en: "Advanced Mathematics A II", zh: "高等数学 A（下）"},
       grade: "A"
     },
     {
