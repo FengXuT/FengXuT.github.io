@@ -1,0 +1,85 @@
+@import "../../_globalColor";
+
+.coursework-section {
+  box-sizing: border-box;
+  margin: 0 auto;
+  padding: 40px 0 70px;
+  width: 90%;
+}
+
+.coursework-heading {
+  font-size: 52px;
+  font-weight: 400;
+  line-height: normal;
+  margin: 0;
+}
+
+.coursework-subtitle {
+  color: $subTitle;
+  margin: 0.75rem 0 2rem;
+}
+
+.coursework-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.coursework-card {
+  align-items: center;
+  background: $lightBackground2;
+  border: 1px solid $lightBorder1;
+  border-radius: 12px;
+  box-shadow: $lightBoxShadowDark 0 10px 30px -18px;
+  display: flex;
+  justify-content: space-between;
+  min-height: 72px;
+  padding: 1rem 1.15rem;
+}
+
+.coursework-card-dark {
+  background: $darkBackground;
+  border-color: rgba(255, 255, 255, 0.12);
+}
+
+.coursework-course-name {
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.45;
+  padding-right: 1rem;
+}
+
+.coursework-grade {
+  align-items: center;
+  background: $buttonColor;
+  border-radius: 50%;
+  color: $textColorDark;
+  display: flex;
+  flex: 0 0 2.5rem;
+  font-size: 1.1rem;
+  font-weight: 700;
+  height: 2.5rem;
+  justify-content: center;
+}
+
+@media (max-width: 900px) {
+  .coursework-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .coursework-heading {
+    font-size: 30px;
+    text-align: center;
+  }
+
+  .coursework-subtitle {
+    font-size: 16px;
+    text-align: center;
+  }
+
+  .coursework-grid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -12,6 +12,7 @@ import Footer from "../components/footer/Footer";
 import Talks from "./talks/Talks";
 import Podcast from "./podcast/Podcast";
 import Education from "./education/Education";
+import Coursework from "./coursework/Coursework";
 import ScrollToTopButton from "./topbutton/Top";
 import Twitter from "./twitter-embed/twitter";
 import SplashScreen from "./splashScreen/SplashScreen";
@@ -69,6 +70,7 @@ const Main = () => {
               <Skills />
               <StackProgress />
               <Education />
+              <Coursework />
               <WorkExperience />
               <Projects />
               <StartupProject />

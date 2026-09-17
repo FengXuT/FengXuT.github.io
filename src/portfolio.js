@@ -86,6 +86,44 @@ const educationInfo = {
   ]
 };
 
+const courseworkSection = {
+  title: {en: "Core Coursework", zh: "专业课成绩"},
+  subtitle: {
+    en: "Selected foundational courses · All graded A",
+    zh: "核心基础课程 · 成绩均为 A 等"
+  },
+  display: true,
+  courses: [
+    {
+      name: {en: "Advanced Mathematics (A) I", zh: "高等数学（A）（上）"},
+      grade: "A"
+    },
+    {
+      name: {en: "Advanced Mathematics (A) II", zh: "高等数学（A）（下）"},
+      grade: "A"
+    },
+    {
+      name: {en: "General Physics B", zh: "普通物理 B"},
+      grade: "A"
+    },
+    {
+      name: {en: "Programming", zh: "程序设计"},
+      grade: "A"
+    },
+    {
+      name: {en: "Linear Algebra", zh: "线性代数"},
+      grade: "A"
+    },
+    {
+      name: {
+        en: "Fundamentals of Computer Systems",
+        zh: "计算机系统基础"
+      },
+      grade: "A"
+    }
+  ]
+};
+
 const projectsSection = {
   title: {en: "Selected Projects", zh: "代表项目"},
   subtitle: {
@@ -180,6 +218,7 @@ export {
   splashScreen,
   skillsSection,
   educationInfo,
+  courseworkSection,
   projectsSection,
   techStack,
   workExperiences,

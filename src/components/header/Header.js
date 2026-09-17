@@ -8,6 +8,7 @@ import {
   greeting,
   workExperiences,
   skillsSection,
+  courseworkSection,
   openSource,
   blogSection,
   talkSection,
@@ -23,6 +24,7 @@ function Header() {
       ? {
           skills: "技能",
           education: "教育",
+          coursework: "课程成绩",
           experience: "经历",
           projects: "项目",
           achievements: "奖项",
@@ -34,6 +36,7 @@ function Header() {
       : {
           skills: "Skills",
           education: "Education",
+          coursework: "Coursework",
           experience: "Experience",
           projects: "Projects",
           achievements: "Achievements",
@@ -45,6 +48,7 @@ function Header() {
   const viewExperience = workExperiences.display;
   const viewOpenSource = openSource.display;
   const viewSkills = skillsSection.display;
+  const viewCoursework = courseworkSection.display;
   const viewAchievement = achievementSection.display;
   const viewBlog = blogSection.display;
   const viewTalks = talkSection.display;
@@ -75,6 +79,11 @@ function Header() {
           <li>
             <a href="#education">{labels.education}</a>
           </li>
+          {viewCoursework && (
+            <li>
+              <a href="#coursework">{labels.coursework}</a>
+            </li>
+          )}
           {viewExperience && (
             <li>
               <a href="#experience">{labels.experience}</a>
